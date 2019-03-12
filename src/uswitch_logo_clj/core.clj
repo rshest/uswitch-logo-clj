@@ -5,8 +5,8 @@
 (def ^:const uswitch-blue [0.007 0.01 0.61])
 
 ; shape boolean operations
-(defn intersection ([& args] (clamp (apply vmin args) [0 0 0] [1 1 1])))
-(defn union ([& args] (clamp (apply vmax args) [0 0 0] [1 1 1])))
+(def intersection vmin)
+(def union vmax)
 (defn difference ([& args] (clamp (apply v- args) [0 0 0] [1 1 1])))
 
 ; circle function
@@ -29,7 +29,7 @@
     (rotate (/ Math/PI 4) (rect s s))
     (offset [0 (- s)] (rect (* 2 s) s)))))
 
-; a "letter u" equation - a circle combined with a rectngle,
+; a "letter u" equation - a circle combined with a rectangle,
 ; minus a smaller circle and a smaller rectangle
 (defn letter-u ([w]
   (difference
