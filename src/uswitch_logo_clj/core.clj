@@ -1,6 +1,7 @@
 (ns uswitch-logo-clj.core
   (:require [clisk.live :refer :all]))
 
+; uswitch logo color
 (def ^:const uswitch-blue [0.007 0.01 0.61])
 
 ; shape boolean operations
@@ -48,11 +49,11 @@
       (offset [-0.15 0.05] (letter-u 0.06)))
     (offset [-0.22 0.22] (triangle 0.09)))))
 
-;(show (offset [-0.5 -0.5] (letter-u 0.15)))
-
+; coloured and centered logo
 (defn uswitch-logo ([]
   (v+ uswitch-blue (offset [-0.5 -0.5] (uswitch-logo-shape)))))
 
+; some random noise to offset pixel positions
 (defn offset-noise ([]
   (v* (seamless 0.1 (compose plasma vsnoise)) [0.05 0.05 0.05])))
 

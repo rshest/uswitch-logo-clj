@@ -19,6 +19,8 @@ The logo is made from primitive shapes (circles and rectangles), which are corre
 
 This is further coloured and distorted.
 
+Distortion is done just to demonstrate how things can be combined with other Clisk operators. Also, it makes the logo look like gas :)
+
 ## Running
 
 ```bash
