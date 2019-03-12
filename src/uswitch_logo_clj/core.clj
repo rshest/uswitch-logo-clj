@@ -22,9 +22,6 @@
         black
         white)))
 
-; all pixels below y plane, used for cutting out
-(defn lower-half-plane ([] (if (> y 0) black white)))
-
 ; triangle equation (right-angled, pointed upwards)
 ; made by rotating a rectangle and subtracting a rectangle from the bottom part
 (defn triangle ([s]
