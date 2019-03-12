@@ -11,7 +11,7 @@ Clean logo:
 
 ![](img/uswitch-logo-clean.png)
 
-A bit of distortion to demontrate combination with Clisk base operators:
+A bit of distortion to demonstrate combination with Clisk base operators:
 
 ![](img/uswitch-logo-distorted.png)
 
