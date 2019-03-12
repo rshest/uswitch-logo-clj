@@ -9,27 +9,28 @@
 (defn union ([& args] (clamp (apply vmax args) [0 0 0] [1 1 1])))
 (defn difference ([& args] (clamp (apply v- args) [0 0 0] [1 1 1])))
 
-; circle equation
+; circle function
 (defn circle ([r]
   (vif `(- (+ (* ~'y ~'y) (* ~'x ~'x)) (* ~r ~r)) 
         black
         white)))
 
-; rectrangle equation, see http://mathforum.org/library/drmath/view/77216.html
+; rectangle function, see http://mathforum.org/library/drmath/view/77216.html
 (defn rect ([w h]
   (vif `(+ (Math/abs (+ (/ ~'x ~w) (/ ~'y ~h))) 
            (Math/abs (- (/ ~'x ~w) (/ ~'y ~h))) -2) 
         black
         white)))
 
-; triangle equation (right-angled, pointed upwards)
+; triangle function (right-angled, pointed upwards)
 ; made by rotating a rectangle and subtracting a rectangle from the bottom part
 (defn triangle ([s]
   (difference
     (rotate (/ Math/PI 4) (rect s s))
     (offset [0 (- s)] (rect (* 2 s) s)))))
 
-; a "letter u" equation
+; a "letter u" equation - a circle combined with a rectngle,
+; minus a smaller circle and a smaller rectangle
 (defn letter-u ([w]
   (difference
     (union 
@@ -38,7 +39,8 @@
     (circle (- 0.3 w))
     (offset [0 0.3] (rect (- 0.3 w) 0.3)))))
 
-; combined shape of the logo
+; combined shape of the logo - subtract a thinner "letter u"
+; and add a small triangle at the upper right
 (defn uswitch-logo-shape ([]
   (union
     (difference
